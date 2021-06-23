@@ -27,8 +27,11 @@ export class PlayersComponent implements OnInit {
 
   addPlayer() {
     console.log(this.newPlayer);
-    this.playersService.addPlayer(this.newPlayer).then((r) => console.log(r));
+    this.playersService
+      .addPlayer(this.newPlayer)
+      .then((r) => this.players.push(r));
     //Clear fields for new input
+
     this.newPlayer = {
       'Nombre del Jugador': '',
       id: '',

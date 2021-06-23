@@ -85,7 +85,11 @@
 >
   <div class="card" *ngFor="let player of players">
     <a href="/players/{{ player.id }}" display="text-decoration:none">
-      <img src="{{ player.Avatar }}" class="card-img-top" alt="..." />
+      <img
+        src="{{ player.Avatar }}"
+        class="card-img-top"
+        alt="Foto del jugador"
+      />
       <div class="card-body">
         <h5 class="card-title">{{ player["Nombre del Jugador"] }}</h5>
         <p class="card-text">{{ player.teamId }}</p>
