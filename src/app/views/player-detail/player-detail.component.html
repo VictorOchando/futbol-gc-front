@@ -1,0 +1,141 @@
+<!-- BOTON AÑADIR -->
+<div style="text-align: center; padding: 20px">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#editModal"
+    style="margin: 5px"
+  >
+    Editar Jugador
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#deleteModal"
+    style="margin: 5px; background-color: crimson; border-color: crimson"
+  >
+    X
+  </button>
+</div>
+
+<!-- MODAL EDITAR -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Jugador</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input
+          [(ngModel)]="player['Nombre del Jugador']"
+          type="text"
+          style="width: 100%"
+        />
+        <input [(ngModel)]="player['Avatar']" type="text" style="width: 100%" />
+        <!-- CAMBIAR EL SELECT PARA QUE ELIJA MEJOR LOS EQUIPOS -->
+        <!-- <select
+          class="form-control"
+          id="choose-team"
+          name="choose-team"
+          [(ngModel)]="player.teamId"
+        >
+          <option [ngValue]="player.teamId" *ngFor="let player of players">
+            {{ player.teamId }}
+          </option>
+        </select> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="editPlayer()"
+          data-dismiss="modal"
+        >
+          Añadir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL DELETE -->
+<!-- MODAL EDITAR -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Jugador</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de querer eliminar este jugador?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Volver
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="deletePlayer()"
+          data-dismiss="modal"
+          routerLink="players"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PLAYER DETAIL -->
+<div
+  style="
+    background-color: aquamarine;
+    max-width: 400px;
+    margin: auto;
+
+    padding: 30px;
+  "
+>
+  <div class="card">
+    <a href=""></a>
+    <img src="{{ player.Avatar }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ player["Nombre del Jugador"] }}</h5>
+      <p class="card-text">{{ player.teamId }}</p>
+    </div>
+  </div>
+</div>

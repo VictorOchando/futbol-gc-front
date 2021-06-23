@@ -1,0 +1,95 @@
+<!-- BOTON AÑADIR -->
+<div style="text-align: center; padding: 20px">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    Añadir Jugador
+  </button>
+</div>
+
+<!-- MODAL AÑADIR -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Jugador</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input
+          [(ngModel)]="newPlayer['Nombre del Jugador']"
+          type="text"
+          placeholder="Nombre del Jugador"
+          style="width: 100%"
+        />
+        <input
+          [(ngModel)]="newPlayer['Avatar']"
+          type="text"
+          placeholder="Foto"
+          style="width: 100%"
+        />
+        <!-- CAMBIAR EL SELECT PARA QUE ELIJA MEJOR LOS EQUIPOS -->
+        <select
+          class="form-control"
+          id="choose-team"
+          name="choose-team"
+          [(ngModel)]="newPlayer.teamId"
+        >
+          <option [ngValue]="player.teamId" *ngFor="let player of players">
+            {{ player.teamId }}
+          </option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addPlayer()"
+          data-dismiss="modal"
+        >
+          Añadir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- GRID -->
+<div
+  style="
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5px;
+    padding: 30px;
+  "
+>
+  <div class="card" *ngFor="let player of players">
+    <a href="/players/{{ player.id }}" display="text-decoration:none">
+      <img src="{{ player.Avatar }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ player["Nombre del Jugador"] }}</h5>
+        <p class="card-text">{{ player.teamId }}</p>
+      </div>
+    </a>
+  </div>
+</div>
