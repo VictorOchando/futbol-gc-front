@@ -13,6 +13,7 @@ import { TeamsService } from 'src/app/services/teams.service';
 export class PlayerDetailComponent implements OnInit {
   player: any = { name: '', id: '', avatar: '', teamId: '', team: {} };
   teams: any;
+  editedPlayer: Player = { name: '', id: '', avatar: '', teamId: '' };
 
   constructor(
     private router: Router,
@@ -27,9 +28,15 @@ export class PlayerDetailComponent implements OnInit {
   }
 
   editPlayer() {
+    this.editedPlayer = {
+      name: this.player.name,
+      id: this.player.id,
+      avatar: this.player.avatar,
+      teamId: this.player.teamId,
+    };
     this.playersService
-      .editPlayer(this.player)
-      .then((r) => (console.log(r), (this.player = r)));
+      .editPlayer(this.editedPlayer)
+      .then((r) => this.router.navigateByUrl('/players/' + this.player.id));
   }
 
   deletePlayer() {

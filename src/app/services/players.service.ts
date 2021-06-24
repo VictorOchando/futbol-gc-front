@@ -42,4 +42,9 @@ export class PlayersService {
       .get('http://localhost:3000/players?teamId=' + id)
       .then((r) => r.data);
   }
+  searchPlayers(search: string) {
+    return axios
+      .get('http://localhost:3000/players' + search)
+      .then((r) => r.data);
+  }
 }

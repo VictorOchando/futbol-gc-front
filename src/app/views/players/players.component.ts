@@ -12,6 +12,7 @@ import { TeamsService } from 'src/app/services/teams.service';
 })
 export class PlayersComponent implements OnInit {
   teams: any = [];
+  playerSearch: string = '';
   newPlayer: Player = {
     name: '',
     id: '',
@@ -52,4 +53,11 @@ export class PlayersComponent implements OnInit {
       this.teams = r;
     });
   }
+
+  searchPlayersName() {
+    this.playersService
+      .searchPlayers('?name_like=' + this.playerSearch)
+      .then((r) => (this.players = r));
+  }
+  searchPlayersTeam() {}
 }
