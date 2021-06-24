@@ -1,4 +1,4 @@
-<!-- BOTON AÑADIR -->
+<!-- BOTON EDITAR -->
 <div style="text-align: center; padding: 20px">
   <button
     type="button"
@@ -14,6 +14,7 @@
     data-toggle="modal"
     data-target="#editModal"
     style="margin: 5px"
+    (click)="getTeams()"
   >
     Editar Jugador
   </button>
@@ -51,23 +52,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <input
-          [(ngModel)]="player['Nombre del Jugador']"
-          type="text"
-          style="width: 100%"
-        />
-        <input [(ngModel)]="player['avatar']" type="text" style="width: 100%" />
-        <!-- CAMBIAR EL SELECT PARA QUE ELIJA MEJOR LOS EQUIPOS -->
-        <!-- <select
+        <input [(ngModel)]="player.name" type="text" style="width: 100%" />
+        <input [(ngModel)]="player.avatar" type="text" style="width: 100%" />
+        <select
           class="form-control"
           id="choose-team"
           name="choose-team"
           [(ngModel)]="player.teamId"
         >
-          <option [ngValue]="player.teamId" *ngFor="let player of players">
-            {{ player.teamId }}
+          <option value="" [disabled]="true">Selecciona un equipo</option>
+          <option [ngValue]="team.id" *ngFor="let team of teams">
+            {{ team.name }}
           </option>
-        </select> -->
+        </select>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -79,14 +76,15 @@
           (click)="editPlayer()"
           data-dismiss="modal"
         >
-          Añadir
+          Editar
         </button>
       </div>
     </div>
   </div>
 </div>
+
 <!-- MODAL DELETE -->
-<!-- MODAL EDITAR -->
+
 <div
   class="modal fade"
   id="deleteModal"
@@ -109,7 +107,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>¿Está seguro de querer eliminar este jugador?</p>
+        <p>¿Desea eliminar este jugador?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -143,7 +141,9 @@
     <img src="{{ player.avatar }}" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ player.name }}</h5>
-      <p class="card-text">{{ player.teamId }}</p>
+      <a href="/teams/{{ player.team.id }}"
+        ><p class="card-text">{{ player.team.name }}</p></a
+      >
       <!-- ["Nombre del equipo"] -->
     </div>
   </div>

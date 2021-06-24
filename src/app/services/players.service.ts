@@ -37,4 +37,9 @@ export class PlayersService {
       .delete('http://localhost:3000/players/' + id)
       .then((r) => r.data);
   }
+  getPlayersByTeam(id: string) {
+    return axios
+      .get('http://localhost:3000/players?teamId=' + id)
+      .then((r) => r.data);
+  }
 }

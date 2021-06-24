@@ -11,16 +11,15 @@ import { TeamsService } from 'src/app/services/teams.service';
   styleUrls: ['./players.component.scss'],
 })
 export class PlayersComponent implements OnInit {
-  teams = {};
+  teams: any = [];
   newPlayer: Player = {
     name: '',
     id: '',
     avatar: '',
     teamId: '',
   };
-  //name: string = '';
+
   players: any = [];
-  prueba: any;
 
   constructor(
     private playersService: PlayersService,
@@ -31,10 +30,6 @@ export class PlayersComponent implements OnInit {
 
   ngOnInit(): void {
     this.playersService.getAllPlayers().then((r) => (this.players = r));
-
-    this.teamsService.getAllTeams().then((r) => r);
-
-    //TODO: axios get to teams for the selector
   }
 
   addPlayer() {
@@ -50,5 +45,11 @@ export class PlayersComponent implements OnInit {
       avatar: '',
       teamId: '',
     };
+  }
+
+  getTeams() {
+    this.teamsService.getAllTeams().then((r) => {
+      this.teams = r;
+    });
   }
 }

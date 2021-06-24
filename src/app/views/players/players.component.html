@@ -4,7 +4,8 @@
     type="button"
     class="btn btn-primary"
     data-toggle="modal"
-    data-target="#exampleModal"
+    data-target="#addModal"
+    (click)="getTeams()"
   >
     Añadir Jugador
   </button>
@@ -13,16 +14,16 @@
 <!-- MODAL AÑADIR -->
 <div
   class="modal fade"
-  id="exampleModal"
+  id="addModal"
   tabindex="-1"
   role="dialog"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="addModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir Jugador</h5>
+        <h5 class="modal-title" id="addModalLabel">Añadir Jugador</h5>
         <button
           type="button"
           class="close"
@@ -45,15 +46,15 @@
           placeholder="Foto"
           style="width: 100%"
         />
-        <!-- CAMBIAR EL SELECT PARA QUE ELIJA MEJOR LOS EQUIPOS -->
+
         <select
           class="form-control"
           id="choose-team"
           name="choose-team"
           [(ngModel)]="newPlayer.teamId"
         >
-          <option [ngValue]="player.teamId" *ngFor="let player of players">
-            {{ player.team.name }}
+          <option [ngValue]="team.id" *ngFor="let team of teams">
+            {{ team.name }}
           </option>
         </select>
       </div>
@@ -84,7 +85,7 @@
   "
 >
   <div class="card" *ngFor="let player of players">
-    <a href="/players/{{ player.id }}" display="text-decoration:none">
+    <a href="/players/{{ player.id }}">
       <img
         src="{{ player.avatar }}"
         class="card-img-top"

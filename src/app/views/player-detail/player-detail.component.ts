@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Player } from 'src/app/models/player.model';
 import { PlayersService } from 'src/app/services/players.service';
 import { Router } from '@angular/router';
+import { TeamsService } from 'src/app/services/teams.service';
 
 @Component({
   selector: 'app-player-detail',
@@ -10,12 +11,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./player-detail.component.scss'],
 })
 export class PlayerDetailComponent implements OnInit {
-  player: any = { name: '', id: '', avatar: '', teamId: '' };
+  player: any = { name: '', id: '', avatar: '', teamId: '', team: {} };
+  teams: any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private playersService: PlayersService
+    private playersService: PlayersService,
+    private teamsService: TeamsService
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +36,10 @@ export class PlayerDetailComponent implements OnInit {
     this.playersService
       .deletePlayer(this.player.id)
       .then((r) => this.router.navigateByUrl('/players'));
+  }
+  getTeams() {
+    this.teamsService.getAllTeams().then((r) => {
+      this.teams = r;
+    });
   }
 }
