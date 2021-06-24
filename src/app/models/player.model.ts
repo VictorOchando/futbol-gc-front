@@ -1,6 +1,6 @@
 export interface Player {
-  'Nombre del Jugador': string;
+  name: string;
   id: string;
-  Avatar: string;
+  avatar: string;
   teamId: string;
 }

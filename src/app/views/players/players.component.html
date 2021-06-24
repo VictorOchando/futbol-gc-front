@@ -34,13 +34,13 @@
       </div>
       <div class="modal-body">
         <input
-          [(ngModel)]="newPlayer['Nombre del Jugador']"
+          [(ngModel)]="newPlayer.name"
           type="text"
           placeholder="Nombre del Jugador"
           style="width: 100%"
         />
         <input
-          [(ngModel)]="newPlayer['Avatar']"
+          [(ngModel)]="newPlayer.avatar"
           type="text"
           placeholder="Foto"
           style="width: 100%"
@@ -53,7 +53,7 @@
           [(ngModel)]="newPlayer.teamId"
         >
           <option [ngValue]="player.teamId" *ngFor="let player of players">
-            {{ player.teamId }}
+            {{ player.team.name }}
           </option>
         </select>
       </div>
@@ -86,13 +86,13 @@
   <div class="card" *ngFor="let player of players">
     <a href="/players/{{ player.id }}" display="text-decoration:none">
       <img
-        src="{{ player.Avatar }}"
+        src="{{ player.avatar }}"
         class="card-img-top"
         alt="Foto del jugador"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ player["Nombre del Jugador"] }}</h5>
-        <p class="card-text">{{ player.teamId }}</p>
+        <h5 class="card-title">{{ player.name }}</h5>
+        <p class="card-text">{{ player.team.name }}</p>
       </div>
     </a>
   </div>

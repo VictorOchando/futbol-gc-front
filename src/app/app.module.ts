@@ -8,6 +8,8 @@ import { PlayersComponent } from './views/players/players.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { PlayerDetailComponent } from './views/player-detail/player-detail.component';
+import { TeamsComponent } from './views/teams/teams.component';
+import { TeamDetailComponent } from './views/team-detail/team-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { PlayerDetailComponent } from './views/player-detail/player-detail.compo
     PlayersComponent,
     NavbarComponent,
     PlayerDetailComponent,
+    TeamsComponent,
+    TeamDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

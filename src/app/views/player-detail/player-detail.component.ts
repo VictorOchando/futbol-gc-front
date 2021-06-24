@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./player-detail.component.scss'],
 })
 export class PlayerDetailComponent implements OnInit {
-  player: Player = { 'Nombre del Jugador': '', id: '', Avatar: '', teamId: '' };
+  player: any = { name: '', id: '', avatar: '', teamId: '' };
 
   constructor(
     private router: Router,
@@ -20,7 +20,7 @@ export class PlayerDetailComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
-    this.playersService.getById(id!).then((r) => (this.player = r));
+    this.playersService.getPlayer(id!).then((r: any) => (this.player = r));
   }
 
   editPlayer() {

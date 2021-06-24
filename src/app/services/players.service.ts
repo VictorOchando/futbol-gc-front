@@ -8,12 +8,16 @@ import { Player } from '../models/player.model';
 export class PlayersService {
   constructor() {}
 
-  getAll(): Promise<Player[]> {
-    return axios.get('http://localhost:3000/players').then((r) => r.data);
+  getAllPlayers() {
+    return axios
+      .get('http://localhost:3000/players?_expand=team')
+      .then((r) => r.data);
   }
 
-  getById(id: string): Promise<Player> {
-    return axios.get('http://localhost:3000/players/' + id).then((r) => r.data);
+  getPlayer(id: string): any {
+    return axios
+      .get('http://localhost:3000/players/' + id + '?_expand=team')
+      .then((r) => r.data);
   }
 
   addPlayer(player: Player) {
