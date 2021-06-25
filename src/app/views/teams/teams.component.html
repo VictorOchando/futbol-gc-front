@@ -1,0 +1,94 @@
+<!-- BOTON AÑADIR. LLama a leagues para utilizar el select -->
+<div class="paddingtop" style="text-align: center">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#addModal"
+    (click)="getLeagues()"
+  >
+    Añadir Equipo
+  </button>
+</div>
+
+<!-- MODAL AÑADIR -->
+<div
+  class="modal fade"
+  id="addModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Añadir Equipo</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input
+          [(ngModel)]="newTeam.name"
+          type="text"
+          placeholder="Nombre del equipo"
+          style="width: 100%"
+        />
+        <input
+          [(ngModel)]="newTeam.logo"
+          type="text"
+          placeholder="Logo del equipo"
+          style="width: 100%"
+        />
+
+        <select
+          class="form-control"
+          id="choose-league"
+          name="choose-league"
+          [(ngModel)]="newTeam.leagueId"
+        >
+          <option value="" [disabled]="true">Selecciona una liga</option>
+          <option [ngValue]="league.id" *ngFor="let league of leagues">
+            {{ league.name }}
+          </option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addTeam()"
+          data-dismiss="modal"
+        >
+          Añadir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- GRID -->
+<h1 class="textshadow" style="text-align: center">Equipos</h1>
+<div class="gridclass">
+  <div class="card" *ngFor="let team of teams">
+    <a href="/teams/{{ team.id }}">
+      <img
+        src="{{ team.logo }}"
+        class="card-img-top playerimg"
+        alt="Logo del equipo"
+      />
+      <div class="card-body">
+        <h5 class="card-title card-underlined">{{ team.name }}</h5>
+        <p class="card-text">{{ team.league.name }}</p>
+      </div>
+    </a>
+  </div>
+</div>

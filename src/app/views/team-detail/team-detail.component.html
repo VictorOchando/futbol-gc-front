@@ -1,0 +1,151 @@
+<!-- BOTON EDITAR -->
+<div class="paddingtop" style="text-align: center">
+  <button
+    type="button"
+    class="btn btn-primary"
+    style="margin: 5px"
+    routerLink="/teams"
+  >
+    <i class="fa fa-chevron-left"></i>
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#editModal"
+    style="margin: 5px"
+    (click)="getLeagues()"
+  >
+    Editar equipo
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#deleteModal"
+    style="margin: 5px; background-color: rgb(185, 86, 104)"
+  >
+    <i class="fa fa-remove"></i>
+  </button>
+</div>
+
+<!-- MODAL EDITAR -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Jugador</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input [(ngModel)]="team.name" type="text" style="width: 100%" />
+        <input [(ngModel)]="team.logo" type="text" style="width: 100%" />
+        <select
+          class="form-control"
+          id="choose-league"
+          name="choose-league"
+          [(ngModel)]="team.leagueId"
+        >
+          <option value="" [disabled]="true">Selecciona una liga</option>
+          <option [ngValue]="league.id" *ngFor="let league of leagues">
+            {{ league.name }}
+          </option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="editTeam()"
+          data-dismiss="modal"
+        >
+          Editar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DELETE -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Equipo</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea eliminar este equipo?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Volver
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="deleteTeam()"
+          data-dismiss="modal"
+          routerLink="/teams"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PLAYER DETAIL -->
+<h1 class="textshadow" style="text-align: center">Equipo</h1>
+<div class="details">
+  <div class="card">
+    <a href=""></a>
+    <img src="{{ team.logo }}" class="card-img-top" alt="Logo del equipo" />
+    <div class="card-body">
+      <h5 class="card-title card-underlined">
+        {{ team.name }}
+      </h5>
+      <a href="/leagues/{{ team.league.id }}">
+        <p class="card-text card-underlined">
+          {{ team.league.name }}
+        </p>
+      </a>
+      <div *ngIf="playersExist">
+        <p class="card-text">Jugadores del equipo:</p>
+        <a *ngFor="let player of players" href="/players/{{ player.id }}">
+          <p class="card-text">{{ player.name }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

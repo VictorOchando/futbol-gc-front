@@ -1,0 +1,124 @@
+{
+  "players": [
+    {
+      "name": "Juanito Pichichi",
+      "id": 1,
+      "avatar": "https://robohash.org/JPp",
+      "teamId": 3
+    },
+    {
+      "name": "Nito Bravo",
+      "id": 3,
+      "avatar": "https://robohash.org/JPpsd",
+      "teamId": 3
+    },
+    {
+      "name": "Manue Jugon",
+      "id": 4,
+      "avatar": "https://robohash.org/mjsd",
+      "teamId": 4
+    },
+    {
+      "name": "Hurr Durr",
+      "id": 5,
+      "avatar": "https://robohash.org/asddasf",
+      "teamId": 4
+    },
+    {
+      "name": "Milton Yatusabe",
+      "id": 6,
+      "avatar": "https://robohash.org/asdajj",
+      "teamId": 6
+    },
+    {
+      "name": "Arody Cadillac",
+      "id": 7,
+      "avatar": "https://robohash.org/asdaghhjj",
+      "teamId": 5
+    },
+    {
+      "name": "El Batu",
+      "id": 8,
+      "avatar": "https://robohash.org/asdadggg",
+      "teamId": 4
+    },
+    {
+      "name": "Padre Baez",
+      "id": 9,
+      "avatar": "https://robohash.org/baez",
+      "teamId": 5
+    },
+    {
+      "name": "Jon Lander",
+      "id": 10,
+      "avatar": "https://robohash.org/Jonasdasda",
+      "teamId": 7
+    },
+    {
+      "name": "Juan Corner",
+      "id": 11,
+      "avatar": "https://robohash.org/asdajjsd",
+      "teamId": 7
+    }
+  ],
+  "teams": [
+    {
+      "name": "Chicharrero F.C.",
+      "id": 3,
+      "logo": "https://i.imgur.com/VNPNgo5.png",
+      "leagueId": "o0hoG4E"
+    },
+    {
+      "name": "U.D. Las Palmas Veteranos",
+      "id": 4,
+      "logo": "https://i.imgur.com/iKIeqv1.png",
+      "leagueId": "W5ZQRQg"
+    },
+    {
+      "name": "U.D. Las Palmas Benjamines",
+      "id": 5,
+      "logo": "https://i.imgur.com/XXMloOC.png",
+      "leagueId": "JFSbAl5"
+    },
+    {
+      "name": "C.D. Tenerife",
+      "id": 6,
+      "logo": "https://i.imgur.com/VNPNgo5.png",
+      "leagueId": "W5ZQRQg"
+    },
+    {
+      "name": "F.C. Barcelona",
+      "id": 7,
+      "logo": "https://i.imgur.com/XvScoJD.png",
+      "leagueId": "uHsXgok"
+    },
+    {
+      "name": "asda",
+      "id": 8,
+      "logo": "asdad",
+      "leagueId": "o0hoG4E"
+    }
+  ],
+  "leagues": [
+    {
+      "name": "Liga Veteranos Las Palmas",
+      "id": "o0hoG4E",
+      "logo": "https://robohash.org/LigaVeteranosLP"
+    },
+    {
+      "name": "Liga Benjamines Las Palmas",
+      "id": "JFSbAl5",
+      "logo": "https://robohash.org/LBLP"
+    },
+    {
+      "name": "Liga Futbol Yoquese",
+      "id": "W5ZQRQg",
+      "logo": "https://robohash.org/Yqs"
+    },
+    {
+      "name": "Canarios sin fronteras",
+      "id": "uHsXgok",
+      "logo": "https://robohash.org/LigaVeteranosLPasda"
+    }
+  ]
+}
