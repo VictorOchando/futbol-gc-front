@@ -44,9 +44,4 @@ export class PlayersService {
       .get(environment.apiUrl + '/players?teamId=' + id)
       .then((r) => r.data);
   }
-  // searchPlayers(search: string) {
-  //   return axios
-  //     .get(environment.apiUrl + '/players?_expand=team&' + search + '')
-  //     .then((r) => r.data);
-  // }
 }

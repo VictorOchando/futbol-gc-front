@@ -62,9 +62,6 @@ export class PlayersComponent implements OnInit {
       r.name.toLowerCase().includes(this.playerSearch.toLowerCase())
     );
     this.isSearching = true;
-    // this.playersService
-    //   .searchPlayers('name_like=' + this.playerSearch)
-    //   .then((r) => (this.players = r));
   }
   searchPlayersTeam() {
     this.players = this.players.filter((r: any) =>

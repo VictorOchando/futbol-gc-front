@@ -11,7 +11,6 @@ import { TeamsService } from 'src/app/services/teams.service';
   styleUrls: ['./teams.component.scss'],
 })
 export class TeamsComponent implements OnInit {
-  // No puedo tipar esto sjdkasjdakd
   leagues: any = [];
   teams: any = [];
   newTeam: Team = {

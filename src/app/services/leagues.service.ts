@@ -11,9 +11,7 @@ export class LeaguesService {
   constructor() {}
 
   getAllLeagues() {
-    return axios
-      .get(environment.apiUrl + '/leagues') //?_expand=team'
-      .then((r) => r.data);
+    return axios.get(environment.apiUrl + '/leagues').then((r) => r.data);
   }
 
   getLeague(id: string): Promise<League> {
