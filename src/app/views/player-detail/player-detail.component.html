@@ -1,9 +1,9 @@
 <!-- BOTON EDITAR -->
-<div style="text-align: center; padding: 20px">
+<div class="paddingtop" style="text-align: center">
   <button
     type="button"
     class="btn btn-primary"
-    style="margin: 5px; background-color: crimson; border-color: crimson"
+    style="margin: 5px"
     routerLink="/players"
   >
     <i class="fa fa-chevron-left"></i>
@@ -23,7 +23,7 @@
     class="btn btn-primary"
     data-toggle="modal"
     data-target="#deleteModal"
-    style="margin: 5px; background-color: crimson; border-color: crimson"
+    style="margin: 5px; background-color: rgb(185, 86, 104)"
   >
     <i class="fa fa-remove"></i>
   </button>
@@ -127,20 +127,25 @@
   </div>
 </div>
 <!-- PLAYER DETAIL -->
-<div
-  style="
-    background-color: aquamarine;
-    max-width: 400px;
-    margin: auto;
-
-    padding: 30px;
-  "
->
+<h1 class="textshadow" style="text-align: center">Jugador</h1>
+<div class="details">
   <div class="card">
     <a href=""></a>
-    <img src="{{ player.avatar }}" class="card-img-top" alt="..." />
+    <div style="position: relative">
+      <img
+        src="{{ player.avatar }}"
+        class="card-img-top playerimg"
+        alt="Foto del jugador"
+      />
+      <img
+        src="{{ player.team.logo }}"
+        alt="Foto del equipo"
+        class="playerbackground"
+      />
+    </div>
+
     <div class="card-body">
-      <h5 class="card-title">{{ player.name }}</h5>
+      <h5 class="card-title card-underlined">{{ player.name }}</h5>
       <a href="/teams/{{ player.team.id }}"
         ><p class="card-text">{{ player.team.name }}</p></a
       >

@@ -1,0 +1,10 @@
+nav {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .navbar-brand {
+    flex-grow: 1;
+  }
+}

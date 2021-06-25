@@ -25,6 +25,9 @@ export class PlayerDetailComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this.playersService.getPlayer(id!).then((r: any) => (this.player = r));
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   editPlayer() {

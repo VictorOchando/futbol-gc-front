@@ -1,5 +1,5 @@
 <!-- BOTON AÑADIR -->
-<div style="text-align: center; padding: 20px">
+<div class="paddingtop" style="text-align: center">
   <button
     type="button"
     class="btn btn-primary"
@@ -10,11 +10,21 @@
     Añadir jugador
   </button>
   <button
+    *ngIf="isSearching"
+    type="button"
+    class="btn btn-primary"
+    style="margin: 5px"
+    routerLink="/players"
+  >
+    <i class="fa fa-chevron-left"></i>
+  </button>
+  <button
+    *ngIf="!isSearching"
     type="button"
     class="btn btn-primary"
     data-toggle="modal"
     data-target="#searchModal"
-    style="margin: 5px; background-color: crimson; border-color: crimson"
+    style="margin: 5px"
   >
     <i class="fa fa-search"></i>
   </button>
@@ -48,6 +58,7 @@
           type="text"
           placeholder="Buscar"
           style="width: 100%"
+          autofocus
         />
       </div>
       <div class="modal-footer">
@@ -138,24 +149,24 @@
   </div>
 </div>
 <!-- GRID -->
-<div
-  style="
-    background-color: aquamarine;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 5px;
-    padding: 30px;
-  "
->
+<h1 style="text-align: center" class="textshadow">Jugadores</h1>
+<div class="gridclass">
   <div class="card" *ngFor="let player of players">
     <a href="/players/{{ player.id }}">
-      <img
-        src="{{ player.avatar }}"
-        class="card-img-top"
-        alt="Foto del jugador"
-      />
+      <div style="position: relative">
+        <img
+          src="{{ player.avatar }}"
+          class="card-img-top playerimg"
+          alt="Foto del jugador"
+        />
+        <img
+          src="{{ player.team.logo }}"
+          alt="Foto del equipo"
+          class="playerbackground"
+        />
+      </div>
       <div class="card-body">
-        <h5 class="card-title">{{ player.name }}</h5>
+        <h5 class="card-title card-underlined">{{ player.name }}</h5>
         <p class="card-text">{{ player.team.name }}</p>
       </div>
     </a>
