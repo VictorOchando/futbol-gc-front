@@ -76,19 +76,4 @@
   </div>
 </div>
 <!-- GRID -->
-<h1 class="textshadow" style="text-align: center">Equipos</h1>
-<div class="gridclass">
-  <div class="card" *ngFor="let team of teams">
-    <a href="/teams/{{ team.id }}">
-      <img
-        src="{{ team.logo }}"
-        class="card-img-top playerimg"
-        alt="Logo del equipo"
-      />
-      <div class="card-body">
-        <h5 class="card-title card-underlined">{{ team.name }}</h5>
-        <p class="card-text">{{ team.league.name }}</p>
-      </div>
-    </a>
-  </div>
-</div>
+<app-viewgrid [items]="teams" itemType="teams" title="Equipos"></app-viewgrid>

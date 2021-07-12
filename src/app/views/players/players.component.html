@@ -127,6 +127,7 @@
           name="choose-team"
           [(ngModel)]="newPlayer.teamId"
         >
+          <option value="" [disabled]="true">Selecciona un equipo</option>
           <option [ngValue]="team.id" *ngFor="let team of teams">
             {{ team.name }}
           </option>
@@ -149,26 +150,8 @@
   </div>
 </div>
 <!-- GRID -->
-<h1 style="text-align: center" class="textshadow">Jugadores</h1>
-<div class="gridclass">
-  <div class="card" *ngFor="let player of players">
-    <a href="/players/{{ player.id }}">
-      <div style="position: relative">
-        <img
-          src="{{ player.avatar }}"
-          class="card-img-top playerimg"
-          alt="Foto del jugador"
-        />
-        <img
-          src="{{ player.team.logo }}"
-          alt="Foto del equipo"
-          class="playerbackground"
-        />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title card-underlined">{{ player.name }}</h5>
-        <p class="card-text">{{ player.team.name }}</p>
-      </div>
-    </a>
-  </div>
-</div>
+<app-viewgrid
+  [items]="players"
+  itemType="players"
+  title="Jugadores"
+></app-viewgrid>

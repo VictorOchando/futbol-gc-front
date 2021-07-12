@@ -12,6 +12,7 @@ import { TeamsComponent } from './views/teams/teams.component';
 import { TeamDetailComponent } from './views/team-detail/team-detail.component';
 import { LeaguesComponent } from './views/leagues/leagues.component';
 import { LeagueDetailComponent } from './views/league-detail/league-detail.component';
+import { ViewgridComponent } from './components/viewgrid/viewgrid.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LeagueDetailComponent } from './views/league-detail/league-detail.compo
     TeamDetailComponent,
     LeaguesComponent,
     LeagueDetailComponent,
+    ViewgridComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

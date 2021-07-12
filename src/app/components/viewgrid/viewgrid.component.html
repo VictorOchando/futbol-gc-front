@@ -1,0 +1,36 @@
+<h1 style="text-align: center" class="textshadow">{{ title }}</h1>
+<div class="gridclass">
+  <div class="card" *ngFor="let item of items">
+    <a href="/{{ itemType }}/{{ item.id }}">
+      <div style="position: relative">
+        <img
+          *ngIf="itemType == 'players'"
+          src="{{ item.avatar }}"
+          class="card-img-top playerimg"
+          alt="Foto"
+        />
+        <img
+          *ngIf="itemType == 'teams' || 'leagues'"
+          src="{{ item.logo }}"
+          class="card-img-top playerimg"
+          alt="Logo"
+        />
+
+        <img
+          *ngIf="itemType == 'players'"
+          src="{{ item.team.logo }}"
+          class="playerbackground"
+        />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title card-underlined">{{ item.name }}</h5>
+        <p *ngIf="itemType == 'players'" class="card-text">
+          {{ item.team.name }}
+        </p>
+        <p *ngIf="itemType == 'teams'" class="card-text">
+          {{ item.league.name }}
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
