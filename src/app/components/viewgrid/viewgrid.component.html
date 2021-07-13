@@ -10,12 +10,11 @@
           alt="Foto"
         />
         <img
-          *ngIf="itemType == 'teams' || 'leagues'"
+          *ngIf="itemType == 'teams' || itemType == 'leagues'"
           src="{{ item.logo }}"
           class="card-img-top playerimg"
           alt="Logo"
         />
-
         <img
           *ngIf="itemType == 'players'"
           src="{{ item.team.logo }}"

@@ -59,12 +59,6 @@
       "id": 11,
       "avatar": "https://robohash.org/asdajjsd",
       "teamId": 7
-    },
-    {
-      "name": "NUEVO JUGADOR",
-      "id": 12,
-      "avatar": "https://i.imgur.com/fbd5sHC.png",
-      "teamId": 3
     }
   ],
   "teams": [
@@ -97,12 +91,6 @@
       "id": 7,
       "logo": "https://i.imgur.com/XvScoJD.png",
       "leagueId": "uHsXgok"
-    },
-    {
-      "name": "asdas",
-      "id": 8,
-      "logo": "https://i.imgur.com/vmezayJ.png",
-      "leagueId": "o0hoG4E"
     }
   ],
   "leagues": [
